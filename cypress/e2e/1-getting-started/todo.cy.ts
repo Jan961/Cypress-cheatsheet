@@ -72,6 +72,7 @@ describe('example to-do app', () => {
     // label
 
     // Also, contains returns the first element that matches the text
+    // whereas find returns an object containing all matching elements
 
 
     // In order to check the item, we'll find the <input> element for this <label>

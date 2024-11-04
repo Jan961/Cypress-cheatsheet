@@ -78,10 +78,11 @@ context('Assertions', () => {
           const paragraphs = texts.get()
 
           // array should have length of 3
+            // use second argument to expect(...) to provide clear
+            // message with each assertion
           expect(paragraphs, 'has 3 paragraphs').to.have.length(3)
 
-          // use second argument to expect(...) to provide clear
-          // message with each assertion
+
           expect(paragraphs, 'has expected text in each paragraph').to.deep.eq([
                                                                                  'Some text from first p',
                                                                                  'More text from second p',
@@ -94,6 +95,9 @@ context('Assertions', () => {
       cy.get('.docs-header')
         .find('div')
         // .should(cb) callback function will be retried
+          // the default command timeout is 4 seconds
+          // this can be changed in cypress.json file
+          // using defaultCommandTimeout: something
         .should(($div) => {
           expect($div).to.have.length(1)
 

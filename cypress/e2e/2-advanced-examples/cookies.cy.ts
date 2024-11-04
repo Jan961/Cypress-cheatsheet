@@ -16,7 +16,15 @@ context('Cookies', () => {
     cy.get('#getCookie .set-a-cookie').click()
 
     // cy.getCookie() yields a cookie object
-    cy.getCookie('token').should('have.property', 'value', '123ABC')
+    // cy.getCookie('token').should('have.property', 'value', '123ABC')
+    cy.getCookie('token').as('cookie');
+    cy.get('@cookie')
+    cy.get('@cookie').should(($cookie) => {
+        expect($cookie).to.have.property("value",'123ABC')
+        // console.log("This is cookie log", cookie);
+      console.log("This is cookie log", $cookie);
+
+    })
   })
 
   it('cy.getCookies() - get browser cookies for the current domain', () => {
