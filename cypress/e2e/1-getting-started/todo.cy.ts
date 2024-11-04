@@ -62,6 +62,18 @@ describe('example to-do app', () => {
     // In addition to using the `get` command to get an element by selector,
     // we can also use the `contains` command to get an element by its contents.
     // However, this will yield the <label>, which is lowest-level element that contains the text.
+
+
+    // BUT - .contains() defaults to preferring elements higher in the tree when they are:
+    //
+    // input[type='submit']
+    // button
+    // a
+    // label
+
+    // Also, contains returns the first element that matches the text
+
+
     // In order to check the item, we'll find the <input> element for this <label>
     // by traversing up the dom to the parent element. From there, we can `find`
     // the child checkbox <input> element and use the `check` command to check it.
@@ -86,6 +98,8 @@ describe('example to-do app', () => {
       // Since we want to perform multiple tests that start with checking
       // one element, we put it in the beforeEach hook
       // so that it runs at the start of every test.
+
+      // find only searches inside the element it is called on unlike get which searches the entire DOM
       cy.contains('Pay electric bill')
         .parent()
         .find('input[type=checkbox]')

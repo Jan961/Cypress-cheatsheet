@@ -1,0 +1,10 @@
+node_modules/
+.github/
+cucumber-messages.ndjson
+cypress/reports/
+cypress/screenshots/
+cypress/videos/
+cucumber-report.html
+.idea/
+videos/
+package-lock.json
